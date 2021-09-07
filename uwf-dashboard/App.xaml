@@ -1,9 +1,79 @@
-﻿<Application x:Class="uwf_dashboard.App"
+﻿<Application x:Class="Cregx.Uwf.Dashboard.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:uwf_dashboard"
+             xmlns:local="clr-namespace:Cregx.Uwf.Dashboard"
+             xmlns:p ="clr-namespace:Cregx.Uwf.Dashboard.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Include the Material Design resources for most of the default WPF controls -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+
+                <!-- Include the Dragablz Material Design style -->
+                <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/materialdesign.xaml"/>
+
+                <!-- Material design base theme -->
+                <materialDesign:BundledTheme BaseTheme="Light"  PrimaryColor="Blue" SecondaryColor="Orange" />
+
+                <!-- Primary color -->
+                <ResourceDictionary>
+                    <!-- Include your primary palette -->
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.indigo.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                    <!--
+                        Include three hues from the primary palette (and the associated forecolours).
+                        Do not rename, keep in sequence; light to dark.
+                    -->
+                    <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="{StaticResource Primary200}"/>
+                    <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="{StaticResource Primary200Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource Primary500}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="{StaticResource Primary500Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="{StaticResource Primary700}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="{StaticResource Primary700Foreground}"/>
+                </ResourceDictionary>
+                <!-- Secondary color -->
+                <ResourceDictionary>
+                    <!-- include your secondary pallette -->
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Yellow.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+
+                    <!-- include a single secondary accent color (and the associated forecolour) -->
+                    <SolidColorBrush x:Key="SecondaryHueMidBrush" Color="{StaticResource Accent200}"/>
+                    <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="{StaticResource Accent200Foreground}"/>
+                    <SolidColorBrush x:Key="SecondaryHueMidOwnBrush" Color="#ff6f00" />
+                    <SolidColorBrush x:Key="SecondaryHueLightOwnBrush" Color="#ADB1CC"/>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Tell Dragablz tab control to use the Material Design theme -->
+            <Style TargetType="{x:Type dragablz:TabablzControl}" BasedOn="{StaticResource MaterialDesignTabablzControlStyle}">
+                <!-- Adjust the height of the header and the font size in the tab control of the Dragablz Tab. -->
+                <Setter Property="ItemContainerStyle">
+                    <Setter.Value>
+                        <Style TargetType="dragablz:DragablzItem" BasedOn="{StaticResource MaterialDesignDragableTabItemStyle}">
+                            <!-- Header size -->
+                            <Setter Property="Height" Value="50" />
+                            <!-- Font size and weight -->
+                            <Setter Property="FontSize" Value="20" />
+                            <Setter Property="FontWeight" Value="Light" />
+                            <!-- One could also do this directly inline, e.g.:
+                            <TabItem>
+                                <TabItem.Header>
+                                    <TextBlock Text="{x:Static p:Resources.UWF_Status}" FontSize="24" FontWeight="Normal" Foreground="White" />
+                                </TabItem.Header>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18">Some Text</TextBlock>
+                            </TabItem> -->
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

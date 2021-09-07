@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace uwf_dashboard
+namespace Cregx.Uwf.Dashboard
 {
     /// <summary>
     /// Interaction logic for App.xaml

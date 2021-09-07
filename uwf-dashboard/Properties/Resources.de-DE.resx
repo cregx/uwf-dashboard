@@ -118,144 +118,144 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>Info</value>
   </data>
   <data name="Action_Filter_Label" xml:space="preserve">
-    <value>UWF:</value>
+    <value>UW-Filter:</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Abbrechen</value>
   </data>
   <data name="Cancelled_Operation" xml:space="preserve">
-    <value>The operation was canceled manually.</value>
+    <value>Der Vorgang wurde manuell abgebrochen.</value>
   </data>
   <data name="Cancel_Panding" xml:space="preserve">
-    <value>Just a moment...</value>
+    <value>Bitte warten...</value>
   </data>
-  <data name="Connection_Failed" xml:space="preserve">
-    <value>Unable to connect to the host: {0}</value>
+  <data name="Connectin_Failed" xml:space="preserve">
+    <value>Verbindung zum Host nicht möglich: {0}</value>
   </data>
   <data name="Disable_Filter_Button" xml:space="preserve">
-    <value>Disable</value>
+    <value>Deaktivieren</value>
   </data>
   <data name="Enable_Filter_Button" xml:space="preserve">
-    <value>Enable</value>
+    <value>Aktivieren</value>
   </data>
   <data name="Exception_Occurred" xml:space="preserve">
-    <value>An exception error has occurred: {0}</value>
+    <value>Ein Ausnahmefehler ist aufgetreten: {0}</value>
   </data>
   <data name="Get_Status_Button" xml:space="preserve">
-    <value>Detect states</value>
+    <value>Status ermitteln</value>
   </data>
   <data name="Hint_Computer_Search" xml:space="preserve">
-    <value>Select/Input a Computer</value>
+    <value>Computer auswählen/eingeben</value>
   </data>
   <data name="Is_Administrator" xml:space="preserve">
     <value>Administrator</value>
   </data>
   <data name="Is_Not_Administrator" xml:space="preserve">
-    <value>Non-Admin</value>
+    <value>Kein Administrator</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Nein</value>
   </data>
   <data name="No_PC_Name_Entered" xml:space="preserve">
-    <value>Please select or enter a computer name.</value>
+    <value>Bitte einen Computernamen auswählen oder eingeben.</value>
   </data>
   <data name="Operation_Progress" xml:space="preserve">
-    <value>Operation in progress...</value>
+    <value>Laufende Operation...</value>
   </data>
   <data name="Operation_Ready" xml:space="preserve">
-    <value>Ready {0}</value>
+    <value>Einsatzbereit {0}</value>
   </data>
   <data name="Operation_Successful" xml:space="preserve">
-    <value>Operation completed successfully.</value>
+    <value>Vorgang erfolgreich abgeschlossen.</value>
   </data>
   <data name="Search_Computer" xml:space="preserve">
     <value>Computer</value>
   </data>
   <data name="Search_Local" xml:space="preserve">
-    <value>local computer</value>
+    <value>Lokaler Computer</value>
   </data>
   <data name="Search_Local_Tag" xml:space="preserve">
     <value>_LOCALHOST</value>
-    <comment>This value must not be changed = _LOCALHOST</comment>
+    <comment>Dieser Wert darf nicht verändert werden = _LOCALHOST</comment>
   </data>
   <data name="This_Computer" xml:space="preserve">
-    <value>this computer</value>
+    <value>diesem Computer</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>UWF Dashboard</value>
   </data>
   <data name="UWF_Critical_Treshold" xml:space="preserve">
-    <value>Critical Treshold:</value>
+    <value>Schwellenwert kritisch:</value>
   </data>
   <data name="UWF_Current_Status" xml:space="preserve">
-    <value>Current Session Settings</value>
+    <value>Aktuelle Session</value>
   </data>
   <data name="UWF_Filter_Is_Not_Installed" xml:space="preserve">
-    <value>There is no UW filter installed on the target computer {0}.</value>
+    <value>Auf dem Zielcomputer {0} ist kein UW-Filter installiert.</value>
   </data>
   <data name="UWF_Filter_Settings" xml:space="preserve">
-    <value>FILTER SETTINGS</value>
+    <value>FILTEREINSTELLUNGEN</value>
   </data>
   <data name="UWF_Filter_Status" xml:space="preserve">
-    <value>Filter state:</value>
+    <value>Filterstatus:</value>
   </data>
   <data name="UWF_HORMEnabled" xml:space="preserve">
-    <value>HORM enabled:</value>
+    <value>HORM aktiv:</value>
   </data>
   <data name="UWF_Invoke_Filter_Activation" xml:space="preserve">
-    <value>enabling</value>
+    <value>Aktivierung</value>
   </data>
   <data name="UWF_Invoke_Filter_Deactivation" xml:space="preserve">
-    <value>disabling</value>
+    <value>Abschaltung</value>
   </data>
   <data name="UWF_Invoke_Filter_Disable" xml:space="preserve">
-    <value>disable</value>
+    <value>deaktivieren</value>
   </data>
   <data name="UWF_Invoke_Filter_Enable" xml:space="preserve">
-    <value>enable</value>
+    <value>aktivieren</value>
   </data>
   <data name="UWF_Maximum_Size" xml:space="preserve">
-    <value>Maximum size:</value>
+    <value>Maximale Größe:</value>
   </data>
   <data name="UWF_Next_Status" xml:space="preserve">
-    <value>Next Session Settings</value>
+    <value>Nächste Session</value>
   </data>
   <data name="UWF_OFF" xml:space="preserve">
-    <value>OFF</value>
+    <value>Aus</value>
   </data>
   <data name="UWF_ON" xml:space="preserve">
-    <value>ON</value>
+    <value>Ein</value>
   </data>
   <data name="UWF_Overlay_Settings" xml:space="preserve">
-    <value>OVERLAY SETTINGS</value>
+    <value>ÜBERLAGERUNGSEINSTELLUNGEN</value>
   </data>
   <data name="UWF_Overlay_Type" xml:space="preserve">
-    <value>Type:</value>
+    <value>Typ:</value>
   </data>
   <data name="UWF_Protected_Volume" xml:space="preserve">
-    <value>Protected Volume:</value>
+    <value>Geschütztes Laufwerk:</value>
   </data>
   <data name="UWF_Question_Invoke_Filter_Method" xml:space="preserve">
-    <value>Do you really want to {1} the filter on {0}?</value>
+    <value>Wollen Sie den Filter wirklich auf {0} {1}?</value>
   </data>
   <data name="UWF_Question_Invoke_Filter_Method_User_Informed" xml:space="preserve">
-    <value>I have informed the user about {0} the filter
-and advised him/her of the importance of restarting the computer.</value>
+    <value>Ich habe die Anwenderinn/den Anwender über die {0} des Filters informiert
+und auf die Notwendigkeit, den Computer neu zu starten, hingewiesen.</value>
   </data>
   <data name="UWF_Question_Restart_Computer" xml:space="preserve">
-    <value>Restart the computer immediately (without warning)?</value>
+    <value>Computer sofort (ohne Vorwarnung) neu starten?</value>
   </data>
   <data name="UWF_Servicing" xml:space="preserve">
-    <value>SERVICING SETTINGS</value>
+    <value>WARTUNGSEINSTELLUNGEN</value>
   </data>
   <data name="UWF_Servicing_Enabled" xml:space="preserve">
-    <value>Servicing State:</value>
+    <value>Wartungsstatus:</value>
   </data>
   <data name="UWF_Shutdown_Pending" xml:space="preserve">
-    <value>Shutdown pending:</value>
+    <value>Ausstehender Neustart:</value>
   </data>
   <data name="UWF_Status" xml:space="preserve">
     <value>Status</value>
@@ -264,18 +264,18 @@ and advised him/her of the importance of restarting the computer.</value>
     <value>RAM</value>
   </data>
   <data name="UWF_Type_1" xml:space="preserve">
-    <value>Disk</value>
+    <value>Festplatte</value>
   </data>
   <data name="UWF_Uknown_Status" xml:space="preserve">
     <value>-</value>
   </data>
   <data name="UWF_Volume_Settings" xml:space="preserve">
-    <value>VOLUME SETTINGS</value>
+    <value>VOLUMEEINSTELLUNGEN</value>
   </data>
   <data name="UWF_Warning_Treshold" xml:space="preserve">
-    <value>Warning Treshold:</value>
+    <value>Schwellenwert Warnung:</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Ja</value>
   </data>
 </root>

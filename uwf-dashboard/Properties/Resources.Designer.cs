@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace uwf_dashboard.Properties
-{
-
-
+namespace Cregx.Uwf.Dashboard.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,522 @@ namespace uwf_dashboard.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    public class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("uwf_dashboard.Properties.Resources", typeof(Resources).Assembly);
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cregx.Uwf.Dashboard.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UWF:.
+        /// </summary>
+        public static string Action_Filter_Label {
+            get {
+                return ResourceManager.GetString("Action_Filter_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Just a moment....
+        /// </summary>
+        public static string Cancel_Panding {
+            get {
+                return ResourceManager.GetString("Cancel_Panding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The operation was canceled manually..
+        /// </summary>
+        public static string Cancelled_Operation {
+            get {
+                return ResourceManager.GetString("Cancelled_Operation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to connect to the host: {0}.
+        /// </summary>
+        public static string Connection_Failed {
+            get {
+                return ResourceManager.GetString("Connection_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable.
+        /// </summary>
+        public static string Disable_Filter_Button {
+            get {
+                return ResourceManager.GetString("Disable_Filter_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable.
+        /// </summary>
+        public static string Enable_Filter_Button {
+            get {
+                return ResourceManager.GetString("Enable_Filter_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An exception error has occurred: {0}.
+        /// </summary>
+        public static string Exception_Occurred {
+            get {
+                return ResourceManager.GetString("Exception_Occurred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detect states.
+        /// </summary>
+        public static string Get_Status_Button {
+            get {
+                return ResourceManager.GetString("Get_Status_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select/Input a Computer.
+        /// </summary>
+        public static string Hint_Computer_Search {
+            get {
+                return ResourceManager.GetString("Hint_Computer_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Administrator.
+        /// </summary>
+        public static string Is_Administrator {
+            get {
+                return ResourceManager.GetString("Is_Administrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-Admin.
+        /// </summary>
+        public static string Is_Not_Administrator {
+            get {
+                return ResourceManager.GetString("Is_Not_Administrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select or enter a computer name..
+        /// </summary>
+        public static string No_PC_Name_Entered {
+            get {
+                return ResourceManager.GetString("No_PC_Name_Entered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation in progress....
+        /// </summary>
+        public static string Operation_Progress {
+            get {
+                return ResourceManager.GetString("Operation_Progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready {0}.
+        /// </summary>
+        public static string Operation_Ready {
+            get {
+                return ResourceManager.GetString("Operation_Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation completed successfully..
+        /// </summary>
+        public static string Operation_Successful {
+            get {
+                return ResourceManager.GetString("Operation_Successful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Computer.
+        /// </summary>
+        public static string Search_Computer {
+            get {
+                return ResourceManager.GetString("Search_Computer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local computer.
+        /// </summary>
+        public static string Search_Local {
+            get {
+                return ResourceManager.GetString("Search_Local", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _LOCALHOST.
+        /// </summary>
+        public static string Search_Local_Tag {
+            get {
+                return ResourceManager.GetString("Search_Local_Tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to this computer.
+        /// </summary>
+        public static string This_Computer {
+            get {
+                return ResourceManager.GetString("This_Computer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UWF Dashboard.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Critical Treshold:.
+        /// </summary>
+        public static string UWF_Critical_Treshold {
+            get {
+                return ResourceManager.GetString("UWF_Critical_Treshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Session Settings.
+        /// </summary>
+        public static string UWF_Current_Status {
+            get {
+                return ResourceManager.GetString("UWF_Current_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no UW filter installed on the target computer {0}..
+        /// </summary>
+        public static string UWF_Filter_Is_Not_Installed {
+            get {
+                return ResourceManager.GetString("UWF_Filter_Is_Not_Installed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FILTER SETTINGS.
+        /// </summary>
+        public static string UWF_Filter_Settings {
+            get {
+                return ResourceManager.GetString("UWF_Filter_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter state:.
+        /// </summary>
+        public static string UWF_Filter_Status {
+            get {
+                return ResourceManager.GetString("UWF_Filter_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HORM enabled:.
+        /// </summary>
+        public static string UWF_HORMEnabled {
+            get {
+                return ResourceManager.GetString("UWF_HORMEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enabling.
+        /// </summary>
+        public static string UWF_Invoke_Filter_Activation {
+            get {
+                return ResourceManager.GetString("UWF_Invoke_Filter_Activation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to disabling.
+        /// </summary>
+        public static string UWF_Invoke_Filter_Deactivation {
+            get {
+                return ResourceManager.GetString("UWF_Invoke_Filter_Deactivation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to disable.
+        /// </summary>
+        public static string UWF_Invoke_Filter_Disable {
+            get {
+                return ResourceManager.GetString("UWF_Invoke_Filter_Disable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enable.
+        /// </summary>
+        public static string UWF_Invoke_Filter_Enable {
+            get {
+                return ResourceManager.GetString("UWF_Invoke_Filter_Enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum size:.
+        /// </summary>
+        public static string UWF_Maximum_Size {
+            get {
+                return ResourceManager.GetString("UWF_Maximum_Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next Session Settings.
+        /// </summary>
+        public static string UWF_Next_Status {
+            get {
+                return ResourceManager.GetString("UWF_Next_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OFF.
+        /// </summary>
+        public static string UWF_OFF {
+            get {
+                return ResourceManager.GetString("UWF_OFF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ON.
+        /// </summary>
+        public static string UWF_ON {
+            get {
+                return ResourceManager.GetString("UWF_ON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OVERLAY SETTINGS.
+        /// </summary>
+        public static string UWF_Overlay_Settings {
+            get {
+                return ResourceManager.GetString("UWF_Overlay_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string UWF_Overlay_Type {
+            get {
+                return ResourceManager.GetString("UWF_Overlay_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Protected Volume:.
+        /// </summary>
+        public static string UWF_Protected_Volume {
+            get {
+                return ResourceManager.GetString("UWF_Protected_Volume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to {1} the filter on {0}?.
+        /// </summary>
+        public static string UWF_Question_Invoke_Filter_Method {
+            get {
+                return ResourceManager.GetString("UWF_Question_Invoke_Filter_Method", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I have informed the user about {0} the filter
+        ///and advised him/her of the importance of restarting the computer..
+        /// </summary>
+        public static string UWF_Question_Invoke_Filter_Method_User_Informed {
+            get {
+                return ResourceManager.GetString("UWF_Question_Invoke_Filter_Method_User_Informed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart the computer immediately (without warning)?.
+        /// </summary>
+        public static string UWF_Question_Restart_Computer {
+            get {
+                return ResourceManager.GetString("UWF_Question_Restart_Computer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SERVICING SETTINGS.
+        /// </summary>
+        public static string UWF_Servicing {
+            get {
+                return ResourceManager.GetString("UWF_Servicing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Servicing State:.
+        /// </summary>
+        public static string UWF_Servicing_Enabled {
+            get {
+                return ResourceManager.GetString("UWF_Servicing_Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shutdown pending:.
+        /// </summary>
+        public static string UWF_Shutdown_Pending {
+            get {
+                return ResourceManager.GetString("UWF_Shutdown_Pending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string UWF_Status {
+            get {
+                return ResourceManager.GetString("UWF_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RAM.
+        /// </summary>
+        public static string UWF_Type_0 {
+            get {
+                return ResourceManager.GetString("UWF_Type_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disk.
+        /// </summary>
+        public static string UWF_Type_1 {
+            get {
+                return ResourceManager.GetString("UWF_Type_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -.
+        /// </summary>
+        public static string UWF_Uknown_Status {
+            get {
+                return ResourceManager.GetString("UWF_Uknown_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VOLUME SETTINGS.
+        /// </summary>
+        public static string UWF_Volume_Settings {
+            get {
+                return ResourceManager.GetString("UWF_Volume_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning Treshold:.
+        /// </summary>
+        public static string UWF_Warning_Treshold {
+            get {
+                return ResourceManager.GetString("UWF_Warning_Treshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

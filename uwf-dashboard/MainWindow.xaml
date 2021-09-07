@@ -1,12 +1,356 @@
-﻿<Window x:Class="uwf_dashboard.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="Cregx.Uwf.Dashboard.MainWindow"
+        Name="WndMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:uwf_dashboard"
+        xmlns:local="clr-namespace:Cregx.Uwf.Dashboard"
+        xmlns:p ="clr-namespace:Cregx.Uwf.Dashboard.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        Title="{x:Static p:Resources.Title}" Height="825" Width="1000" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Loaded="WndMainWindow_Loaded">
+    <!-- xmlns:p = "clr-namespace:Cregx.Uwf.Dashboard.Properties" for: localize resources -->
+    <!-- Make the application window movable -->
+    <WindowChrome.WindowChrome>
+        <!-- Specify which area (window height) can be used to move the window. -->
+        <WindowChrome  CaptionHeight="50" />
+    </WindowChrome.WindowChrome>
     <Grid>
-        
+        <!-- Title, windows menu etc. -->
+        <Grid Height="50" VerticalAlignment="Top" Background="#303f9f">
+            <!-- Important notes like admin rights.-->
+            <StackPanel Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
+                <materialDesign:PackIcon Name="OutputImportantNotesIcon" VerticalAlignment="Center" HorizontalAlignment="center" Kind="ShieldAlert" Height="30" Width="30" Foreground="{StaticResource SecondaryHueMidOwnBrush}" Margin="10,0,0,0" />
+                <Label Name="OutputImportantNotes" Content="" Style="{StaticResource MaterialDesignLabel}" Foreground="White" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" FontWeight="Light" Margin="5,-0.1,0,0"/>
+            </StackPanel>
+            <!-- Window title and dialog window menu controls (minimize, close) -->
+            <StackPanel Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True">
+                <!-- Dialog window title -->
+                <TextBlock Name="WindowTitle" Text="{x:Static p:Resources.Title}" Margin="0 0 30 0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" FontWeight="Light" />
+                <!-- Minimize menu button -->
+                <Button Name="MinimizeButton" Background="{x:Null}" BorderBrush="{x:Null}" Height="48" Width="48" Foreground="White">
+                    <materialDesign:PackIcon Kind="WindowMinimize" />
+                </Button>
+                <!-- Close menu button -->
+                <Button Name="CloseButton" Background="{x:Null}" BorderBrush="{x:Null}" Height="48" Width="48" Foreground="White">
+                    <materialDesign:PackIcon Kind="Close"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!-- Dialog & Tab -->
+        <Grid Margin="0 50 0 0">
+            <!-- DialogHost and embeded tab control-->
+            <materialDesign:DialogHost Identifier="uiCancelDialog" x:Name="CancelDialog" CloseOnClickAway="False">
+                <!-- Dialog box -->
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Margin="20" MinWidth="140" MinHeight="120">
+                        <Label Name="CancelLabel" Style="{StaticResource MaterialDesignLabel}" Content=" " HorizontalAlignment="Center" FontSize="18" />
+                        <ProgressBar Style="{DynamicResource MaterialDesignCircularProgressBar}"
+                                     HorizontalAlignment="Center" Margin="16" IsIndeterminate="True" Value="0" />
+                        <Button Name="CancelButton" Content="{x:Static p:Resources.Cancel}"
+                                FontSize="18" FontWeight="Medium" Style="{StaticResource MaterialDesignFlatButton}"
+                                HorizontalAlignment="Center" Click="CancelButton_Click" />
+                        <!--
+                        <Button x:Name="CancelButton" Content="{x:Static p:Resources.Cancel}"
+                                FontSize="16" FontWeight="Medium" Style="{StaticResource MaterialDesignFlatButton}"
+                                IsCancel="True" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                HorizontalAlignment="Center" Click="CancelButton_Click" />
+                        -->
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
+                <!-- Tab control -->
+                <dragablz:TabablzControl FixedHeaderCount="2" Margin="0,0,0,0">
+                    <dragablz:TabablzControl.InterTabController>
+                        <dragablz:InterTabController />
+                    </dragablz:TabablzControl.InterTabController>
+                    <!-- TabItem: Status -->
+                    <TabItem Header="{x:Static p:Resources.UWF_Status}">
+                        <Grid Margin="20" Background="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10*" />
+                                <RowDefinition Height="90*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Margin="20,0" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="48*" />
+                                </Grid.ColumnDefinitions>
+                                <ComboBox Grid.Column="0" 
+                                      Name="SearchComputer"
+                                      SelectedValuePath="Tag"
+                                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                      materialDesign:HintAssist.Hint="{x:Static p:Resources.Search_Computer}"
+                                      materialDesign:HintAssist.HelperText="{x:Static p:Resources.Hint_Computer_Search}"
+                                      materialDesign:ColorZoneAssist.Mode="Light"
+                                      materialDesign:HintAssist.HintOpacity=".50" 
+                                      IsEditable="True" MaxWidth="215" 
+                                      MinWidth="215"
+                                      HorizontalAlignment="Left" 
+                                      VerticalAlignment="Top">
+                                    <ComboBoxItem Content="{x:Static p:Resources.Search_Local}" Tag="{x:Static p:Resources.Search_Local_Tag}" />
+                                </ComboBox>
+                                <Button x:Name="GetFilterStatus" Grid.Column="0" Content="{x:Static p:Resources.Get_Status_Button}" 
+                                    Click="GetFilterStatus_Click" HorizontalAlignment="Right"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}" MinWidth="150"/>
+                                <!-- Example: Open dialog after button click 
+                                    <Button Name="GetFilterStatus" Grid.Column="0" Content="{x:Static p:Resources.Get_Status_Button}" 
+                                    Click="GetFilterStatus_Click" HorizontalAlignment="Right"
+                                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}" MinWidth="150"/>
+                                -->
+                                <!-- The EnableFilter and DisableFilter buttons. -->
+                                <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
+                                    <Label Grid.Column="2" Content="{x:Static p:Resources.Action_Filter_Label}" Style="{StaticResource MaterialDesignLabel}" VerticalAlignment="Center" HorizontalAlignment="left" FontWeight="Normal" FontSize="20"  Margin="0,0,20,0" />
+                                    <Button x:Name="EnableFilter" Grid.Column="2" Tag="{Binding Path=LastFilterAction}"  Content="{x:Static p:Resources.Enable_Filter_Button}"
+                                            Click="EnableFilterButton_Click" 
+                                            Style="{StaticResource MaterialDesignRaisedDarkButton}" Margin="0,0,10,0" MinWidth="150" />
+                                    <Button x:Name="DisableFilter" Grid.Column="2" Tag="{Binding Path=LastFilterAction}" Content="{x:Static p:Resources.Disable_Filter_Button}" 
+                                            Click="DisableFilterButton_Click"
+                                            Style="{StaticResource MaterialDesignRaisedDarkButton}" MinWidth="150" />
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0,13,20,20" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <!-- current session settings -->
+                                    <ColumnDefinition Width="48*"/>
+                                    <!-- divider -->
+                                    <ColumnDefinition Width="4*"/>
+                                    <!-- next session settings -->
+                                    <ColumnDefinition Width="48*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="{x:Static p:Resources.UWF_Current_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Normal" FontSize="20" />
+                                <Rectangle Grid.Column="1" Margin="0,55,0,25" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="2" Fill="{StaticResource SecondaryHueMidOwnBrush}" />
+                                <Label Grid.Column="2" Content="{x:Static p:Resources.UWF_Next_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Normal" FontSize="20" />
+                                <!-- current session settings (content) -->
+                                <Grid Grid.Column="0" Margin="0,40,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <!-- left column -->
+                                        <ColumnDefinition Width="50*"/>
+                                        <!-- right column -->
+                                        <ColumnDefinition Width="50*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <!-- 0. filter settings -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 1. filter state -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 2. shutdown pending -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 3. HORM enabled -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 4. volume settings -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 5. protected volume -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 6. overlay settings -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 7. type -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 8. maximum size -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 9. warning treshold -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 10. critical trashold -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 11. servicing settings -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 12. servicing state -->
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Filter settings -->
+                                    <Label Grid.Column="0" Grid.Row="0" Margin="0,10,0,0" Content="{x:Static p:Resources.UWF_Filter_Settings}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Light" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="0" Name="OutputFilterSettings" Margin="0,10,0,0" Style="{StaticResource MaterialDesignLabel}" FontWeight="Light" />
+
+                                    <!-- Filter state -->
+                                    <Label Grid.Column="0" Grid.Row="1" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Filter_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="1" Name="OutputFilterStatus"  Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Shutdown pending -->
+                                    <Label Grid.Column="0" Grid.Row="2" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Shutdown_Pending}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="2" Name="OutputShutdownPending" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- HORM enabled -->
+                                    <Label Grid.Column="0" Grid.Row="3" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_HORMEnabled}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="3" Name="OutputHORMEnabled" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Volume settings -->
+                                    <Label Grid.Column="0" Grid.Row="4" Margin="0,10,0,0" Content="{x:Static p:Resources.UWF_Volume_Settings}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Light" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="4" Name="OutputVolumeSettings" Margin="0,10,0,0" Style="{StaticResource MaterialDesignLabel}" FontWeight="Light" />
+
+                                    <!-- Protected volume -->
+                                    <Label Grid.Column="0" Grid.Row="5" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Protected_Volume}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="5" Name="OutputProtectedVolume" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Overlay settings -->
+                                    <Label Grid.Column="0" Grid.Row="6" Margin="0,10,0,0" Grid.ColumnSpan="2" Content="{x:Static p:Resources.UWF_Overlay_Settings}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Light" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="6" Name="OutputOverlaySettings" Margin="0,10,0,0" Style="{StaticResource MaterialDesignLabel}" FontWeight="Light" />
+
+                                    <!-- Type -->
+                                    <Label Grid.Column="0" Grid.Row="7" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Overlay_Type}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="7" Name="OutputVolumeType" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Maximum size -->
+                                    <Label Grid.Column="0" Grid.Row="8" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Maximum_Size}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="8" Name="OutputMaximumSize" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Warning trashold -->
+                                    <Label Grid.Column="0" Grid.Row="9" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Warning_Treshold}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="9" Name="OutputWarningTreshold" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Critical trashold -->
+                                    <Label Grid.Column="0" Grid.Row="10" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Critical_Treshold}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="10" Name="OutputCriticalTreshold" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Servicing settings -->
+                                    <Label Grid.Column="0" Grid.Row="11" Margin="0,10,0,0" Grid.ColumnSpan="2" Content="{x:Static p:Resources.UWF_Servicing}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Light" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="6" Name="OutputServicingSettings" Margin="0,10,0,0" Style="{StaticResource MaterialDesignLabel}" FontWeight="Light" />
+
+                                    <!-- Servicing state -->
+                                    <Label Grid.Column="0" Grid.Row="12" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Servicing_Enabled}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="12" Name="OutputServicingEnabled" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                </Grid>
+
+                                <!-- next session settings (content) -->
+                                <Grid Grid.Column="2" Margin="0,40,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <!-- left column -->
+                                        <ColumnDefinition Width="50*"/>
+                                        <!-- right column -->
+                                        <ColumnDefinition Width="50*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <!-- 0. filter settings -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 1. filter state -->
+                                        <RowDefinition Height="40"/>
+
+                                        <RowDefinition Height="40"/>
+
+                                        <RowDefinition Height="40"/>
+                                        <!-- 4. volume settings -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 5. protected volume -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 6. overlay settings -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 7. type -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 8. maximum size -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 9. warning treshold -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 10. critical trashold -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 11. servicing settings -->
+                                        <RowDefinition Height="40"/>
+                                        <!-- 12. servicing state -->
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Filter settings -->
+                                    <Label Grid.Column="0" Grid.Row="0" Margin="0,10,0,0" Content="{x:Static p:Resources.UWF_Filter_Settings}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Light" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="0" Name="OutputNextFilterSettings" Margin="0,10,0,0" Style="{StaticResource MaterialDesignLabel}" FontWeight="Light" />
+
+                                    <!-- Filter state -->
+                                    <Label Grid.Column="0" Grid.Row="1" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Filter_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="1" Name="OutputNextFilterStatus"  Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Shutdown pending -->
+                                    <Label Grid.Column="0" Grid.Row="2" Margin="20,0,0,0" Content="" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="2" Content="" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- HORM enabled -->
+                                    <Label Grid.Column="0" Grid.Row="3" Margin="20,0,0,0" Content="" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="3" Content="" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Volume settings -->
+                                    <Label Grid.Column="0" Grid.Row="4" Margin="0,10,0,0" Content="{x:Static p:Resources.UWF_Volume_Settings}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Light" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="4" Name="OutputNextVolumeSettings" Margin="0,10,0,0" Style="{StaticResource MaterialDesignLabel}" FontWeight="Light" />
+
+                                    <!-- Protected volume -->
+                                    <Label Grid.Column="0" Grid.Row="5" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Protected_Volume}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="5" Name="OutputNextProtectedVolume" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Overlay settings -->
+                                    <Label Grid.Column="0" Grid.Row="6" Margin="0,10,0,0" Grid.ColumnSpan="2" Content="{x:Static p:Resources.UWF_Overlay_Settings}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Light" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="6" Name="OutputNextOverlaySettings" Margin="0,10,0,0" Style="{StaticResource MaterialDesignLabel}" FontWeight="Light" />
+
+                                    <!-- Type -->
+                                    <Label Grid.Column="0" Grid.Row="7" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Overlay_Type}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="7" Name="OutputNextVolumeType" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Maximum size -->
+                                    <Label Grid.Column="0" Grid.Row="8" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Maximum_Size}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="8" Name="OutputNextMaximumSize" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Warning trashold -->
+                                    <Label Grid.Column="0" Grid.Row="9" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Warning_Treshold}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="9" Name="OutputNextWarningTreshold" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Critical trashold -->
+                                    <Label Grid.Column="0" Grid.Row="10" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Critical_Treshold}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="10" Name="OutputNextCriticalTreshold" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                    <!-- Servicing settings -->
+                                    <Label Grid.Column="0" Grid.Row="11" Margin="0,10,0,0" Grid.ColumnSpan="2" Content="{x:Static p:Resources.UWF_Servicing}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Light" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="6" Name="OutputNextServicingSettings" Margin="0,10,0,0" Style="{StaticResource MaterialDesignLabel}" FontWeight="Light" />
+
+                                    <!-- Servicing state -->
+                                    <Label Grid.Column="0" Grid.Row="12" Margin="20,0,0,0" Content="{x:Static p:Resources.UWF_Servicing_Enabled}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+                                    <Label Grid.Column="1" Grid.Row="12" Name="OutputNextServicingEnabled" Content="{x:Static p:Resources.UWF_Uknown_Status}" Style="{StaticResource MaterialDesignLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Normal" FontSize="18" />
+
+                                </Grid>
+
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <!-- TabItem: Info -->
+                    <TabItem Header="{x:Static p:Resources.About}">
+                        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Label Name="OutputAppInfo" Content=""/>
+                        </Grid>
+                    </TabItem>
+                </dragablz:TabablzControl>
+            </materialDesign:DialogHost>
+            <!-- Dialog that is displayed when no computer name has been entered. -->
+            <materialDesign:DialogHost Identifier="uiNoComputerName" x:Name="NoComputerNameDialog" CloseOnClickAway="True">
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Margin="20" MinWidth="60">
+                        <Label Style="{StaticResource MaterialDesignLabel}" Content="{x:Static p:Resources.No_PC_Name_Entered}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" />
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+            <!-- Dialog that is displayed when the admin clicks enable or disable the uwf filter. -->
+            <materialDesign:DialogHost Identifier="uiConfirmInvokeFilterMethod" x:Name="ConfirmInvokeFilterMethod" CloseOnClickAway="True">
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Margin="20,25,20,20" MinWidth="60">
+                        <Label x:Name="uiQuestInvokeFilterMethod" Style="{StaticResource MaterialDesignLabel}" Content="{x:Static p:Resources.UWF_Question_Invoke_Filter_Method}"  FontSize="18" FontWeight="SemiBold" />
+                        <StackPanel Margin="0,10,0,10">
+                            <CheckBox x:Name="uiUserInformedCbx" IsChecked="{Binding UserInformed}" materialDesign:CheckBoxAssist.CheckBoxSize="30" Content="{x:Static p:Resources.UWF_Question_Invoke_Filter_Method_User_Informed}"  FontSize="16" Click="uiUserInformedCbx_Click" />
+                            <CheckBox x:Name="uiComputerRestartCbx" IsChecked="{Binding RestartComputer}" materialDesign:CheckBoxAssist.CheckBoxSize="30" Content="{x:Static p:Resources.UWF_Question_Restart_Computer}" FontSize="16" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
+                            <Button x:Name="uiExecFilterActionBtn"
+                                    Content="{x:Static p:Resources.Yes}" 
+                                    MinWidth="100" Margin="5,0" Click="uiExecFilterActionBtn_Click"
+                                    />
+                            <Button x:Name="uiCancFilterActionBtn" Content="{x:Static p:Resources.No}" MinWidth="100" Margin="5,0" Click="uiCancFilterActionBtn_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+        </Grid>
+        <!-- Status bar -->
+        <Grid VerticalAlignment="Bottom" >
+            <Border Name="OutputStatusBarContainer" Background="{StaticResource SecondaryHueLightOwnBrush}" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="0" Margin="1" Height="35">
+                <TextBlock Name="OutputStatusBar" VerticalAlignment="Center" Foreground="White" FontWeight="Medium" Style="{StaticResource MaterialDesignBody1TextBlock}" Margin="10,0" Background="Transparent" />
+            </Border>
+        </Grid >
     </Grid>
 </Window>
