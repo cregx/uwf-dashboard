@@ -23,3 +23,6 @@ For more information on this project, please visit my website: [(https://www.cre
 
 But note that UWF Dashboard is still under development. At the moment, it only has the basic functionality to activate and deactivate the UWF. The configuration of the UWF environment on the target system must be done using either uwfmgr.exe or PowerShell. 
 
+## Disclaimer
+
+This program code is provided "as is", without warranty or guarantee as to its usability or effects on systems. It may be used, distributed and modified in any manner, provided that the parties agree and acknowledge that the author(s) assume(s) no responsibility or liability for the results obtained by the use of this code.
