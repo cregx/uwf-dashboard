@@ -21,7 +21,11 @@ For more information on this project, please visit my website: [(https://www.cre
 
 ## Still under development...
 
-But note that UWF Dashboard is still under development. At the moment, it only has the basic functionality to activate and deactivate the UWF. The configuration of the UWF environment on the target system must be done using either uwfmgr.exe or PowerShell. 
+But note that UWF Dashboard is still under development. At the moment, it only has the basic functionality to activate and deactivate the UWF. The configuration of the UWF environment on the target system must be done using either uwfmgr.exe or PowerShell.
+
+## Code of Conduct
+
+Please refer to the [Code of Conduct](https://github.com/cregx/uwf-dashboard/blob/main/CODE_OF_CONDUCT.md) for this repository.
 
 ## Disclaimer
 
