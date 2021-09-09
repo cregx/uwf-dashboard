@@ -70,7 +70,7 @@ Changes: The icon has been color matched to the colors of the application.
 Original name: shield-alert
 Created by: Peter Noble
 
-## Original license
+### Original license
 
 License project used icons: https://github.com/Templarian/MaterialDesign.git
 Pictogrammers Free License
