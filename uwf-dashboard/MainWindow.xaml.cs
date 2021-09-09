@@ -1534,11 +1534,7 @@ namespace Cregx.Uwf.Dashboard
                 #endregion
 
 
-                // TODO hier weiter machen.
-
-
-
-
+                // TODO continue here.
 
 
 
@@ -1835,17 +1831,10 @@ namespace Cregx.Uwf.Dashboard
         private void uiExecFilterActionBtn_Click(object sender, RoutedEventArgs e)
         {           
             // MessageBox.Show(String.Format("uiExecFilterAction: Method: {1}, Restart computer: {0}", ((DataViewModel)DataContext).RestartComputer.ToString(), ((DataViewModel)DataContext).LastFilterAction));
-
-            
-            
-            
             
             
             
             // TODO here check if the UWF Feature is installed.
-
-
-
 
 
 
