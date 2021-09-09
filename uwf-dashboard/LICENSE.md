@@ -3,7 +3,7 @@
 The application was developed by Christoph Regner.
 On the web: https://www.cregx.de
 
-MIT License (MIT)
+The MIT License (MIT)
 Copyright (c) 2020-2021 cregx
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -70,11 +70,10 @@ Changes: The icon has been color matched to the colors of the application.
 Original name: shield-alert
 Created by: Peter Noble
 
-3. Original license
+### Original license
 
 License project used icons: https://github.com/Templarian/MaterialDesign.git
 Pictogrammers Free License
---------------------------
 
 This icon collection is released as free, open source, and GPL friendly by
 the [Pictogrammers](http://pictogrammers.com/) icon group. You may use it
