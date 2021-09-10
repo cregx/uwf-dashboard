@@ -28,7 +28,7 @@ SOFTWARE.
 
 # UI Design
 
-The UI of the application was created using MaterialDesignInXamlToolkit by James Willock, Mulholland Software and Contributors.
+The UI of the application was created using MaterialDesignInXamlToolkit and Dragablz by James Willock, Mulholland Software and Contributors.
 On the web: https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit
 
 The MIT License (MIT)
