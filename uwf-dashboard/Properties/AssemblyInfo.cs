@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UWFdashboard")]
+[assembly: AssemblyTitle("UWF Dashboard")]
 [assembly: AssemblyDescription("Windows UI application to control Windows Unified Write Filter (UWF) on a local or multiple remote domain computers.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Christoph Regner")]
-[assembly: AssemblyProduct("UWFdashboard")]
-[assembly: AssemblyCopyright("Copyright © 2020 Christoph Regner (MIT License)")]
+[assembly: AssemblyProduct("UWF Dashboard")]
+[assembly: AssemblyCopyright("Copyright © 2020-2021 Christoph Regner (MIT License)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
