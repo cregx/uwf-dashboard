@@ -8,10 +8,8 @@ Normally, one would use the console tool uwfmgr.exe to manage UWF but the UWF Da
 
 ![no-more-console](https://www.cregx.de/assets/images/noconsole.svg)
 
-## What does the application interface look like?
-
 <p align="center">
-<img src="https://user-images.githubusercontent.com/14788832/132885242-89e762e1-7d7e-4e6b-a342-f60fc479323c.gif" alt="uwf-dashboard-get-status" height="500">
+  <img src="https://user-images.githubusercontent.com/14788832/132888410-0a1fa9c7-dbbd-473c-b4ad-82dafdad9c49.gif" alt="uwf-dashboard-get-status" height="500">
 </p>
 
 **_What is Unified Write Filter:_**
