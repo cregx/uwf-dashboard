@@ -530,6 +530,15 @@ namespace Cregx.Uwf.Dashboard.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Visit the project web site at {0}.
+        /// </summary>
+        public static string Visit_Project_Site {
+            get {
+                return ResourceManager.GetString("Visit_Project_Site", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yes.
         /// </summary>
         public static string Yes {

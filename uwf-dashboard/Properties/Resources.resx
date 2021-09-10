@@ -275,6 +275,9 @@ and advised him/her of the importance of restarting the computer.</value>
   <data name="UWF_Warning_Treshold" xml:space="preserve">
     <value>Warning Treshold:</value>
   </data>
+  <data name="Visit_Project_Site" xml:space="preserve">
+    <value>Visit the project web site at {0}</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>

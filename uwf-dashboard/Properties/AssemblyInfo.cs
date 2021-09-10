@@ -8,11 +8,11 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("UWFdashboard")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Windows UI application to control Windows Unified Write Filter (UWF) on a local or multiple remote domain computers.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Cregx")]
+[assembly: AssemblyCompany("Christoph Regner")]
 [assembly: AssemblyProduct("UWFdashboard")]
-[assembly: AssemblyCopyright("Copyright © 2020 Cregx")]
+[assembly: AssemblyCopyright("Copyright © 2020 Christoph Regner (MIT License)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.3.0.*")]
-[assembly: AssemblyFileVersion("0.3.0.0")]
+[assembly: AssemblyVersion("0.3.1.*")]
+[assembly: AssemblyFileVersion("0.3.1.0")]

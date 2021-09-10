@@ -310,10 +310,25 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <!-- TabItem: Info -->
+                    <!-- TabItem: About -->
                     <TabItem Header="{x:Static p:Resources.About}">
-                        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Label Name="OutputAppInfo" Content=""/>
+                        <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <!-- single column -->
+                                <ColumnDefinition Width="100*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <!-- 0. About -->
+                                <RowDefinition Height="40"/>
+                                <!-- 1. Project site info -->
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center" Name="OutputAppInfo" Content="About" />
+                            <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center">
+                                <Hyperlink RequestNavigate="ProjectSiteHyperlink_Click" NavigateUri="https://www.cregx.de/docs/uwfdashboard/">
+                                    <TextBlock Name="OutputVisitProjectSite" Text="Visit project web site"/>
+                                </Hyperlink>    
+                            </TextBlock>
                         </Grid>
                     </TabItem>
                 </dragablz:TabablzControl>

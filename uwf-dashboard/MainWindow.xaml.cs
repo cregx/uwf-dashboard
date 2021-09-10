@@ -17,6 +17,7 @@ using System.Diagnostics;                           // Testing.
 using System.Linq;                                  // e.g. for First() in EnumerateInstances()(CIM).
 using System.ComponentModel;                        // Databinding.
 using System.Windows.Data;
+using System.Windows.Navigation;                    // Hyperlinks.
 
 namespace Cregx.Uwf.Dashboard
 {
@@ -1063,7 +1064,8 @@ namespace Cregx.Uwf.Dashboard
                 company = ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
             
-            OutputAppInfo.Content = String.Format("App Ver. {0} ({1}) / {2}",  Assembly.GetExecutingAssembly().GetName().Version.ToString(), "Dev-Build", company);
+            OutputAppInfo.Content = String.Format("App Ver. {0} ({1}) / {2} {3}",  Assembly.GetExecutingAssembly().GetName().Version.ToString(), "Dev-Build", "MIT License Copyright (c) 2020-2021", company);
+            OutputVisitProjectSite.Text = String.Format(resourceManager.GetString("Visit_Project_Site", cultureInfo), "https://www.cregx.de/docs/uwfdashboard/");
 
             #endregion
 
@@ -1832,10 +1834,8 @@ namespace Cregx.Uwf.Dashboard
         {           
             // MessageBox.Show(String.Format("uiExecFilterAction: Method: {1}, Restart computer: {0}", ((DataViewModel)DataContext).RestartComputer.ToString(), ((DataViewModel)DataContext).LastFilterAction));
             
-            
-            
+                       
             // TODO here check if the UWF Feature is installed.
-
 
 
             /**
@@ -1869,6 +1869,17 @@ namespace Cregx.Uwf.Dashboard
         private void uiCancFilterActionBtn_Click(object sender, RoutedEventArgs e)
         {
             ConfirmInvokeFilterMethod.IsOpen = false;
+        }
+
+        /// <summary>
+        /// Event: Is fired when the admi clicks on the project info link.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ProjectSiteHyperlink_Click(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

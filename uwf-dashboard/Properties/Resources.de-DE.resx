@@ -275,6 +275,9 @@ und auf die Notwendigkeit, den Computer neu zu starten, hingewiesen.</value>
   <data name="UWF_Warning_Treshold" xml:space="preserve">
     <value>Schwellenwert Warnung:</value>
   </data>
+  <data name="Visit_Project_Site" xml:space="preserve">
+    <value>Besuchen Sie die Projekt-Website unter {0}</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
   </data>
