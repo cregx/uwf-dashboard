@@ -9,9 +9,7 @@ Normally, one would use the console tool uwfmgr.exe to manage UWF but the UWF Da
 
 ![no-more-console](https://www.cregx.de/assets/images/noconsole.svg)
 
-<p align="center">
- ![uwf-dashboard-gui-status](https://user-images.githubusercontent.com/14788832/133479432-343e4442-2e16-4c83-8abd-48499dbe3b9a.png)
-</p>
+![uwf-dashboard-gui-status](https://user-images.githubusercontent.com/14788832/133479432-343e4442-2e16-4c83-8abd-48499dbe3b9a.png)
 
 **_What is Unified Write Filter:_**
 
