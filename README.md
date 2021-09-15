@@ -1,4 +1,5 @@
 # UWF Dashboard
+[![CodeQL](https://user-images.githubusercontent.com/14788832/133478909-fa66cf1a-e431-456f-9040-5535829f5796.png)](https://github.com/cregx/uwf-dashboard/actions/workflows/codeql-analysis.yml)
 
 The Windows UI application "UWF Dashboard" offers the possibility of a simplified activation/deactivation of an already configured UWF on a local or a remote domain computer.
 
@@ -9,7 +10,7 @@ Normally, one would use the console tool uwfmgr.exe to manage UWF but the UWF Da
 ![no-more-console](https://www.cregx.de/assets/images/noconsole.svg)
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/14788832/132888410-0a1fa9c7-dbbd-473c-b4ad-82dafdad9c49.gif" alt="uwf-dashboard-get-status" height="50%">
+ ![uwf-dashboard-gui-status](https://user-images.githubusercontent.com/14788832/133479432-343e4442-2e16-4c83-8abd-48499dbe3b9a.png)
 </p>
 
 **_What is Unified Write Filter:_**
