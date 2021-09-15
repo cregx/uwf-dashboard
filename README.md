@@ -1,5 +1,6 @@
 # UWF Dashboard
-[![CodeQL](https://user-images.githubusercontent.com/14788832/133478909-fa66cf1a-e431-456f-9040-5535829f5796.png)](https://github.com/cregx/uwf-dashboard/actions/workflows/codeql-analysis.yml) [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE.md)
+[![CodeQL](https://user-images.githubusercontent.com/14788832/133478909-fa66cf1a-e431-456f-9040-5535829f5796.png)](https://github.com/cregx/uwf-dashboard/actions/workflows/codeql-analysis.yml) [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE.md) [![docs](https://img.shields.io/badge/docs-available-brightgreen)](https://www.cregx.de/docs/uwfdashboard/)
+
 
 The Windows UI application "UWF Dashboard" offers the possibility of a simplified activation/deactivation of an already configured UWF on a local or a remote domain computer.
 
